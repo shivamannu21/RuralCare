@@ -274,7 +274,37 @@
                 name="village"
                 placeholder="Enter village or address"
             >
+            <label>Preferred Timing</label>
 
+            <input
+                type="time"
+                name="timing"
+            >
+            <label>Patient Status</label>
+
+<select name="status">
+
+    <option value="Waiting" selected>
+        ⏳ Waiting
+    </option>
+
+    <option value="In Consultation">
+        🩺 In Consultation
+    </option>
+
+    <option value="Completed">
+        ✅ Completed
+    </option>
+
+    <option value="Emergency">
+        🚨 Emergency
+    </option>
+
+    <option value="Cancelled">
+        ❌ Cancelled
+    </option>
+
+</select>
 
             <div class="section-title">
                 🩺 Select Symptoms

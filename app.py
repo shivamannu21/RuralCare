@@ -35,9 +35,14 @@ def init_db():
             symptoms TEXT,
             token_number INTEGER NOT NULL,
             visit_date TEXT NOT NULL,
+            timing TEXT,
             status TEXT DEFAULT 'Waiting'
         )
     """)
+    try:
+        conn.execute("ALTER TABLE patients ADD COLUMN timing TEXT")
+    except sqlite3.OperationalError:
+        pass
 
     conn.commit()
     conn.close()
@@ -79,6 +84,8 @@ def register():
         phone = request.form.get("phone", "").strip()
         village = request.form.get("village", "").strip()
         symptoms = request.form.get("symptoms", "").strip()
+        timing = request.form.get("timing", "").strip()
+        status = request.form.get("status", "Waiting").strip()
 
         # Basic validation
         if not name or not age or not gender:
@@ -140,9 +147,12 @@ def register():
                 village,
                 symptoms,
                 token_number,
-                visit_date
+                visit_date,
+                timing,
+                status
+                
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 patient_id,
@@ -153,7 +163,9 @@ def register():
                 village,
                 symptoms,
                 token,
-                today
+                today,
+                timing,
+                status
             )
         )
 
