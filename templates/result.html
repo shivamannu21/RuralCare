@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RuralCare | Result</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8ff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .result-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #356fe0;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #52647c;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #356fe0;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="result-box">
+
+        <h1>Health Guidance</h1>
+
+        <p>
+            {{ result }}
+        </p>
+
+        <a href="/symptoms">
+            ← Check Again
+        </a>
+
+    </div>
+
+</body>
+
+</html>

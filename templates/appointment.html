@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RuralCare - Book Appointment</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at 10% 10%, #ffd6e8 0%, transparent 30%),
+                radial-gradient(circle at 90% 20%, #d9e8ff 0%, transparent 30%),
+                radial-gradient(circle at 50% 100%, #eadcff 0%, transparent 35%),
+                #f8f9ff;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 35px 15px;
+        }
+
+        /* Background medical icons */
+
+        .medical-icon {
+            position: fixed;
+            opacity: 0.10;
+            font-size: 80px;
+            pointer-events: none;
+        }
+
+        .icon1 {
+            top: 8%;
+            left: 5%;
+        }
+
+        .icon2 {
+            top: 15%;
+            right: 6%;
+        }
+
+        .icon3 {
+            bottom: 10%;
+            left: 8%;
+        }
+
+        .icon4 {
+            bottom: 12%;
+            right: 7%;
+        }
+
+        /* Main card */
+
+        .appointment-card {
+            width: 100%;
+            max-width: 650px;
+
+            background: rgba(255,255,255,0.94);
+
+            border-radius: 30px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 25px 70px rgba(91, 75, 150, 0.20);
+
+            position: relative;
+            z-index: 2;
+
+            border: 1px solid rgba(255,255,255,0.9);
+        }
+
+        /* Top icon */
+
+        .top-icon {
+            width: 75px;
+            height: 75px;
+
+            margin: 0 auto 15px;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 38px;
+
+            background:
+                linear-gradient(135deg, #ffb6d5, #c7c8ff);
+
+            box-shadow:
+                0 10px 25px rgba(180,100,180,0.20);
+        }
+
+        /* Heading */
+
+        h1 {
+            text-align: center;
+
+            margin: 0;
+
+            font-size: 34px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #e84393,
+                    #8e5de7,
+                    #3478db
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+
+            color: #777;
+
+            margin: 10px 0 30px;
+
+            font-size: 15px;
+        }
+
+        /* Form */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            color: #4b4260;
+        }
+
+        label span {
+            margin-right: 6px;
+        }
+
+        input,
+        select {
+            width: 100%;
+
+            padding: 15px 17px;
+
+            border-radius: 14px;
+
+            border: 2px solid #e5dff0;
+
+            background: #fff;
+
+            font-size: 15px;
+
+            color: #333;
+
+            outline: none;
+
+            transition: 0.25s;
+        }
+
+        input:focus,
+        select:focus {
+
+            border-color: #c65aa5;
+
+            box-shadow:
+                0 0 0 4px rgba(198,90,165,0.12);
+        }
+
+        /* Two columns */
+
+        .row {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        /* Appointment button */
+
+        .book-btn {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 17px;
+
+            border-radius: 16px;
+
+            margin-top: 5px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #e84393,
+                    #9b59b6,
+                    #4c7cf0
+                );
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 12px 25px rgba(170,80,160,0.25);
+
+            transition: 0.25s;
+        }
+
+        .book-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 17px 32px rgba(170,80,160,0.32);
+        }
+
+        /* Bottom note */
+
+        .secure {
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+        /* Back */
+
+        .back-home {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            text-decoration: none;
+
+            color: #7254b8;
+
+            font-weight: 600;
+        }
+
+        .back-home:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px 12px;
+            }
+
+            .appointment-card {
+                padding: 28px 20px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .medical-icon {
+                font-size: 50px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Background medical decorations -->
+
+    <div class="medical-icon icon1">🩺</div>
+    <div class="medical-icon icon2">💊</div>
+    <div class="medical-icon icon3">🩹</div>
+    <div class="medical-icon icon4">🏥</div>
+
+
+    <!-- Main Appointment Card -->
+
+    <div class="appointment-card">
+
+        <div class="top-icon">
+            📅
+        </div>
+
+
+        <h1>
+            Book an Appointment
+        </h1>
+
+        <div class="subtitle">
+            Schedule your visit with a healthcare professional
+        </div>
+
+
+        <form method="POST">
+
+
+            <!-- Name -->
+
+            <div class="form-group">
+
+                <label>
+                    <span>👤</span>
+                    Patient Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Phone -->
+
+            <div class="form-group">
+
+                <label>
+                    <span>📱</span>
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Hospital -->
+
+            <div class="form-group">
+
+                <label>
+                    <span>🏥</span>
+                    Select Hospital
+                </label>
+
+                <select name="hospital" required>
+
+                    <option value="">
+                        Choose a hospital
+                    </option>
+
+                    <option>
+                        RuralCare Community Hospital
+                    </option>
+
+                    <option>
+                        District Government Hospital
+                    </option>
+
+                    <option>
+                        City Healthcare Centre
+                    </option>
+
+                    <option>
+                        District Health Centre
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Date + Time -->
+
+            <div class="row">
+
+                <div class="form-group">
+
+                    <label>
+                        <span>📅</span>
+                        Appointment Date
+                    </label>
+
+                    <input
+                        type="date"
+                        name="date"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        <span>⏰</span>
+                        Preferred Time
+                    </label>
+
+                    <select name="time" required>
+
+                        <option value="">
+                            Select time
+                        </option>
+
+                        <option>09:00 AM</option>
+                        <option>10:00 AM</option>
+                        <option>11:00 AM</option>
+                        <option>12:00 PM</option>
+                        <option>02:00 PM</option>
+                        <option>03:00 PM</option>
+                        <option>04:00 PM</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Doctor -->
+
+            <div class="form-group">
+
+                <label>
+                    <span>👨‍⚕️</span>
+                    Select Doctor
+                </label>
+
+                <select name="doctor">
+
+                    <option value="">
+                        Choose doctor (optional)
+                    </option>
+
+                    <option>
+                        General Physician
+                    </option>
+
+                    <option>
+                        Child Specialist
+                    </option>
+
+                    <option>
+                        Women's Health Specialist
+                    </option>
+
+                    <option>
+                        Senior Medical Officer
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Button -->
+
+            <button
+                type="submit"
+                class="book-btn"
+            >
+
+                💖 Confirm Appointment
+
+            </button>
+
+
+        </form>
+
+
+        <div class="secure">
+            🔒 Your information is kept private and secure
+        </div>
+
+
+        <a
+            href="/"
+            class="back-home"
+        >
+            ← Back to RuralCare Home
+        </a>
+
+    </div>
+
+
+</body>
+</html>

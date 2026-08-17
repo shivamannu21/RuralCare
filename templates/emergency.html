@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RuralCare - Emergency Help</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at top left, #ffd6df, transparent 35%),
+                radial-gradient(circle at bottom right, #cfe5ff, transparent 35%),
+                linear-gradient(135deg, #f8fbff, #eef4ff);
+
+            min-height: 100vh;
+            color: #263238;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: rgba(255,255,255,0.95);
+
+            padding: 18px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+
+            color: #1769aa;
+        }
+
+        .logo span {
+            color: #e63956;
+        }
+
+        .home-btn {
+            text-decoration: none;
+
+            background: #1769aa;
+            color: white;
+
+            padding: 10px 20px;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            background: #0d4f83;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            width: 92%;
+            max-width: 1000px;
+
+            margin: 40px auto 70px;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    #d90429,
+                    #ef476f
+                );
+
+            color: white;
+
+            padding: 45px 25px;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 20px 45px rgba(217,4,41,0.25);
+
+            margin-bottom: 30px;
+        }
+
+        .hero-icon {
+            font-size: 65px;
+
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+
+            margin: 5px 0 12px;
+
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 18px;
+
+            margin: 0 auto;
+
+            max-width: 650px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           MAIN EMERGENCY BUTTON
+        ========================= */
+
+        .call-112 {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 16px 40px;
+
+            background: white;
+
+            color: #d90429;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.18);
+
+            transition: 0.3s;
+        }
+
+        .call-112:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section-title {
+            font-size: 28px;
+
+            margin: 35px 0 20px;
+
+            color: #183b56;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           SERVICE CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(250px, 1fr));
+
+            gap: 22px;
+
+            margin-top: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.96);
+
+            border-radius: 22px;
+
+            padding: 28px 22px;
+
+            box-shadow:
+                0 10px 30px rgba(30,60,100,0.10);
+
+            border: 1px solid rgba(255,255,255,0.8);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 18px 35px rgba(30,60,100,0.16);
+        }
+
+        .card-icon {
+            font-size: 45px;
+
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            margin: 8px 0;
+
+            font-size: 22px;
+
+            color: #183b56;
+        }
+
+        .number {
+            font-size: 34px;
+
+            font-weight: 900;
+
+            color: #e63956;
+
+            margin: 10px 0;
+        }
+
+        .card p {
+            color: #667085;
+
+            line-height: 1.6;
+
+            font-size: 15px;
+        }
+
+        .call-btn {
+            display: inline-block;
+
+            margin-top: 12px;
+
+            padding: 11px 25px;
+
+            border-radius: 25px;
+
+            background: #1769aa;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .call-btn:hover {
+            background: #0d4f83;
+        }
+
+
+        /* =========================
+           GOVERNMENT ASSISTANCE
+        ========================= */
+
+        .government {
+            margin-top: 35px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 10px 30px rgba(30,60,100,0.10);
+        }
+
+        .government h2 {
+            margin-top: 0;
+
+            color: #1769aa;
+
+            font-size: 27px;
+        }
+
+        .gov-item {
+            padding: 18px;
+
+            margin: 12px 0;
+
+            border-radius: 16px;
+
+            background: #f5f9ff;
+
+            border-left: 5px solid #1769aa;
+        }
+
+        .gov-item h3 {
+            margin: 0 0 7px;
+
+            color: #183b56;
+        }
+
+        .gov-item p {
+            margin: 5px 0;
+
+            color: #667085;
+
+            line-height: 1.5;
+        }
+
+        .gov-number {
+            font-size: 24px;
+
+            font-weight: 800;
+
+            color: #e63956;
+        }
+
+
+        /* =========================
+           EMERGENCY STEPS
+        ========================= */
+
+        .steps {
+            margin-top: 35px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #f4f8ff
+                );
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 10px 30px rgba(30,60,100,0.10);
+        }
+
+        .steps h2 {
+            color: #183b56;
+
+            margin-top: 0;
+        }
+
+        .step {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin: 15px auto;
+
+            max-width: 650px;
+
+            text-align: left;
+
+            background: #f8fafc;
+
+            padding: 15px;
+
+            border-radius: 15px;
+        }
+
+        .step-number {
+            min-width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            background: #1769aa;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           IMPORTANT WARNING
+        ========================= */
+
+        .warning {
+            margin-top: 30px;
+
+            padding: 22px;
+
+            background: #fff4f4;
+
+            border: 2px solid #ffd0d0;
+
+            border-radius: 20px;
+
+            color: #8a1c1c;
+        }
+
+        .warning strong {
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            background: #183b56;
+
+            color: white;
+
+            margin-top: 40px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width:700px) {
+
+            header {
+                padding: 15px 4%;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .main {
+                width: 94%;
+            }
+
+            .number {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        Rural<span>Care</span> 🏥
+    </div>
+
+    <a href="/" class="home-btn">
+        🏠 Home
+    </a>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<div class="main">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            🚨
+        </div>
+
+        <h1>
+            Emergency Help
+        </h1>
+
+        <p>
+            If you or someone around you is facing a serious
+            medical emergency, get professional help immediately.
+        </p>
+
+        <a href="tel:112" class="call-112">
+            📞 CALL 112 NOW
+        </a>
+
+    </section>
+
+
+
+    <!-- EMERGENCY SERVICES -->
+
+    <h2 class="section-title">
+        🚑 Emergency Services
+    </h2>
+
+
+    <div class="cards">
+
+
+        <!-- 112 -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🚨
+            </div>
+
+            <h3>
+                National Emergency
+            </h3>
+
+            <div class="number">
+                112
+            </div>
+
+            <p>
+                For urgent Police, Fire & Rescue,
+                Medical and other emergency assistance.
+            </p>
+
+            <a href="tel:112" class="call-btn">
+                📞 Call 112
+            </a>
+
+        </div>
+
+
+
+        <!-- 108 -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🚑
+            </div>
+
+            <h3>
+                Ambulance
+            </h3>
+
+            <div class="number">
+                108
+            </div>
+
+            <p>
+                Emergency ambulance service.
+                Availability and operation may vary by state.
+            </p>
+
+            <a href="tel:108" class="call-btn">
+                📞 Call 108
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- GOVERNMENT HELP -->
+
+    <div class="government">
+
+        <h2>
+            🇮🇳 Government Health Assistance
+        </h2>
+
+
+        <!-- AYUSHMAN -->
+
+        <div class="gov-item">
+
+            <h3>
+                🏥 Ayushman Bharat PM-JAY
+            </h3>
+
+            <div class="gov-number">
+                14555
+            </div>
+
+            <p>
+                Get information about PM-JAY benefits,
+                eligibility, hospitals and grievance support.
+            </p>
+
+            <a
+                href="tel:14555"
+                class="call-btn">
+                📞 Call 14555
+            </a>
+
+        </div>
+
+
+
+        <!-- ESANJEEVANI -->
+
+        <div class="gov-item">
+
+            <h3>
+                👨‍⚕️ eSanjeevani Telemedicine
+            </h3>
+
+            <p>
+                Government telemedicine service that can
+                help people access healthcare consultations
+                remotely.
+            </p>
+
+            <a
+                href="https://esanjeevani.mohfw.gov.in/"
+                target="_blank"
+                class="call-btn">
+                🌐 Open eSanjeevani
+            </a>
+
+        </div>
+
+
+
+        <!-- STATE SERVICES -->
+
+        <div class="gov-item">
+
+            <h3>
+                🏛️ State Health Services
+            </h3>
+
+            <p>
+                State-specific health services and emergency
+                facilities may differ. Check your state health
+                department for local information.
+            </p>
+
+            <a
+                href="https://www.mohfw.gov.in/state-health-department"
+                target="_blank"
+                class="call-btn">
+                🌐 Find State Health Department
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- WHAT TO DO -->
+
+    <div class="steps">
+
+        <h2>
+            🆘 What To Do During An Emergency
+        </h2>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <div>
+                <strong>Stay calm</strong><br>
+                Keep yourself and the patient as calm as possible.
+            </div>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <div>
+                <strong>Call for help</strong><br>
+                Dial <b>112</b> for urgent emergency assistance.
+            </div>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <div>
+                <strong>Share your location</strong><br>
+                Clearly tell the emergency service where you are.
+            </div>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+            <div>
+                <strong>Follow professional instructions</strong><br>
+                Follow the instructions given by emergency responders.
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- WARNING -->
+
+    <div class="warning">
+
+        <strong>
+            ⚠️ Important
+        </strong>
+
+        <p>
+            This page is for connecting users with emergency
+            and government services. It does not replace
+            professional medical care.
+        </p>
+
+        <p>
+            For a life-threatening emergency, seek immediate
+            professional help.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <strong>
+        RuralCare
+    </strong>
+
+    <br>
+
+    Connecting rural communities with healthcare
+
+    <br><br>
+
+    🚑 Emergency • 🏥 Healthcare • 🇮🇳 Government Support
+
+</footer>
+
+
+</body>
+
+</html>

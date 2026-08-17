@@ -1,0 +1,771 @@
+/* =========================================================
+   RURALCARE - MODERN HEALTHCARE UI
+   Blue + Cyan + Pink + Purple Theme
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap');
+
+:root {
+    --navy: #071A3D;
+    --blue: #1769FF;
+    --light-blue: #4DB8FF;
+    --cyan: #22D3EE;
+    --pink: #F472B6;
+    --purple: #8B5CF6;
+    --white: #FFFFFF;
+    --light: #F5F9FF;
+    --text: #172554;
+    --muted: #64748B;
+    --shadow: 0 15px 40px rgba(23, 105, 255, 0.15);
+}
+
+/* =========================
+   BASIC
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+nav {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 7%;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(23, 105, 255, 0.08);
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+
+.logo {
+    font-family: "Poppins", sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+
+    background: linear-gradient(
+        135deg,
+        #1769FF,
+        #8B5CF6,
+        #F472B6
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Navigation links */
+
+nav a {
+    color: #334155;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 28px;
+
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+    min-height: 680px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 7%;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(34, 211, 238, 0.25),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(244, 114, 182, 0.25),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #071A3D 0%,
+            #0B2B6B 45%,
+            #1769FF 100%
+        );
+
+    color: white;
+}
+
+/* Decorative glow */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: rgba(34, 211, 238, 0.18);
+
+    filter: blur(80px);
+
+    top: -150px;
+    left: -100px;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background: rgba(244, 114, 182, 0.18);
+
+    filter: blur(90px);
+
+    bottom: -150px;
+    right: -100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+}
+
+/* Small badge */
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 25px;
+}
+
+/* Main heading */
+
+.hero h1 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(45px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
+}
+
+/* Gradient text */
+
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #67E8F9,
+        #FFFFFF,
+        #F9A8D4
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 19px;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    color: rgba(255,255,255,0.85);
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.btn {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 15px 32px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #1769FF,
+        #8B5CF6
+    );
+
+    box-shadow:
+        0 10px 30px rgba(23, 105, 255, 0.35);
+
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(23, 105, 255, 0.45);
+}
+
+/* Pink button */
+
+.btn-pink {
+    background: linear-gradient(
+        135deg,
+        #EC4899,
+        #8B5CF6
+    );
+}
+
+/* =========================
+   WHY RURALCARE
+   ========================= */
+
+.why {
+    padding: 100px 7%;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(34, 211, 238, 0.12),
+            transparent 25%
+        ),
+
+        #F8FBFF;
+}
+
+.section-title {
+    text-align: center;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 42px;
+
+    color: var(--navy);
+
+    margin-bottom: 15px;
+}
+
+.section-title span {
+    background: linear-gradient(
+        90deg,
+        #1769FF,
+        #8B5CF6,
+        #EC4899
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 60px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.9);
+
+    padding: 35px 28px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(23,105,255,0.08);
+
+    box-shadow: var(--shadow);
+
+    transition: 0.35s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 5px;
+
+    top: 0;
+    left: 0;
+
+    background: linear-gradient(
+        90deg,
+        #1769FF,
+        #22D3EE,
+        #EC4899
+    );
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 25px 55px rgba(23,105,255,0.20);
+}
+
+.card-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+
+    font-size: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(23,105,255,0.12),
+            rgba(236,72,153,0.12)
+        );
+}
+
+.card h3 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 21px;
+
+    color: var(--navy);
+
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+
+    font-size: 15px;
+}
+
+/* =========================
+   SERVICES
+   ========================= */
+
+.services {
+    padding: 100px 7%;
+
+    background: white;
+}
+
+.service-card {
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        145deg,
+        #FFFFFF,
+        #F5F9FF
+    );
+
+    box-shadow:
+        0 12px 35px rgba(15,23,42,0.08);
+
+    transition: 0.3s ease;
+
+    border: 1px solid #E2E8F0;
+}
+
+.service-card:hover {
+    transform: scale(1.03);
+
+    border-color: #93C5FD;
+}
+
+/* =========================
+   EMERGENCY SECTION
+   ========================= */
+
+.emergency {
+    margin: 80px 7%;
+
+    padding: 60px 40px;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(244,114,182,0.3),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #991B1B,
+            #DC2626,
+            #BE123C
+        );
+
+    box-shadow:
+        0 20px 50px rgba(220,38,38,0.25);
+}
+
+.emergency h2 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.emergency p {
+    color: rgba(255,255,255,0.85);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    padding: 50px 7%;
+
+    text-align: center;
+
+    color: rgba(255,255,255,0.75);
+
+    background: #071A3D;
+}
+
+footer h3 {
+    font-family: "Poppins", sans-serif;
+
+    color: white;
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 15px 5%;
+    }
+
+    nav a {
+        margin-left: 12px;
+
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 600px;
+
+        padding: 80px 6%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .why,
+    .services {
+        padding: 70px 6%;
+    }
+
+    .emergency {
+        margin: 50px 5%;
+
+        padding: 45px 25px;
+    }
+
+    .emergency h2 {
+        font-size: 30px;
+    }
+}
+/* ===== RURALCARE FEATURE SECTION ===== */
+
+.features {
+    padding: 70px 8%;
+    background: linear-gradient(135deg, #eef7ff, #fff0f7);
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 38px;
+    color: #123b75;
+    margin-bottom: 45px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px 22px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 70, 130, 0.12);
+    border: 1px solid #e5efff;
+    transition: 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 70, 130, 0.20);
+}
+
+.feature-card h3 {
+    color: #174ea6;
+    font-size: 23px;
+    margin: 15px 0 10px;
+}
+
+.feature-card p {
+    color: #5d6675;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.feature-card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #1769ff, #e83e8c);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.feature-card a:hover {
+    transform: scale(1.05);
+}
+
+.feature-icon {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+/* ==============================
+   BEAUTIFUL PATIENT REGISTRATION
+   ============================== */
+
+.registration-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #eef6ff, #fff0f7, #f5efff);
+}
+
+.registration-card {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(72, 61, 139, 0.18);
+}
+
+.registration-card h1 {
+    text-align: center;
+    color: #3155a6;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.registration-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.registration-form label {
+    color: #394867;
+    font-weight: 600;
+    margin-bottom: -10px;
+}
+
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 2px solid #e4e8f5;
+    border-radius: 12px;
+    background: #fafbff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.25s;
+}
+
+.registration-form input:focus,
+.registration-form select:focus,
+.registration-form textarea:focus {
+    border-color: #8b7cf6;
+    box-shadow: 0 0 0 4px rgba(139, 124, 246, 0.12);
+    background: white;
+}
+
+.registration-form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.registration-button {
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #5271ff, #d65db1);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(82, 113, 255, 0.25);
+    transition: 0.3s;
+}
+
+.registration-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(214, 93, 177, 0.3);
+}
+
+.registration-button:active {
+    transform: scale(0.98);
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    .registration-card {
+        padding: 25px;
+    }
+
+    .registration-card h1 {
+        font-size: 28px;
+    }
+}

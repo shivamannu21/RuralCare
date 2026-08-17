@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Appointment Confirmation - RuralCare</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e8f7ff,
+                    #f8eaff,
+                    #fff0f6
+                );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px 15px;
+        }
+
+        .confirmation-card {
+            width: 100%;
+            max-width: 650px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 15px 45px
+                rgba(70, 50, 120, 0.18);
+
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #7c83fd,
+                #c084fc
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 40px;
+        }
+
+        h1 {
+            color: #4b3f91;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .details {
+            text-align: left;
+
+            background: #faf8ff;
+
+            border-radius: 20px;
+
+            padding: 22px;
+
+            border: 1px solid #eee7ff;
+        }
+
+        .detail {
+            display: flex;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 13px 5px;
+
+            border-bottom: 1px solid #ebe6f5;
+        }
+
+        .detail:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #5d557d;
+        }
+
+        .value {
+            color: #333;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .notice {
+            margin-top: 22px;
+
+            padding: 15px;
+
+            border-radius: 15px;
+
+            background: #fff3f8;
+
+            color: #7a4560;
+
+            font-size: 14px;
+        }
+
+        .home-btn {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 13px 25px;
+
+            border-radius: 14px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-weight: bold;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #667eea,
+                    #e879b9
+                );
+        }
+
+        @media (max-width: 600px) {
+
+            .confirmation-card {
+                padding: 25px 18px;
+            }
+
+            .detail {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .value {
+                text-align: left;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="confirmation-card">
+
+        <div class="success-icon">
+            ✅
+        </div>
+
+        <h1>Appointment Request Received</h1>
+
+        <p class="message">
+            Your appointment details have been successfully submitted.
+        </p>
+
+        <div class="details">
+
+            <div class="detail">
+                <span class="label">👤 Patient Name</span>
+                <span class="value">{{ name }}</span>
+            </div>
+
+            <div class="detail">
+                <span class="label">🎂 Age</span>
+                <span class="value">{{ age }}</span>
+            </div>
+
+            <div class="detail">
+                <span class="label">📱 Phone Number</span>
+                <span class="value">{{ phone }}</span>
+            </div>
+
+            <div class="detail">
+                <span class="label">🏥 Hospital</span>
+                <span class="value">{{ hospital }}</span>
+            </div>
+
+            <div class="detail">
+                <span class="label">🩺 Department</span>
+                <span class="value">{{ department }}</span>
+            </div>
+
+            <div class="detail">
+                <span class="label">📅 Appointment Date</span>
+                <span class="value">{{ date }}</span>
+            </div>
+
+            <div class="detail">
+                <span class="label">⏰ Preferred Time</span>
+                <span class="value">{{ time }}</span>
+            </div>
+
+        </div>
+
+        <div class="notice">
+            💡 Please contact the selected hospital to confirm
+            your appointment before visiting.
+        </div>
+
+        <a href="/" class="home-btn">
+            🏠 Back to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>

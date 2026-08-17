@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RuralCare - Healthcare Access</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">🏥 RuralCare</div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/hospitals">Hospitals</a>
+            <a href="/symptoms">Symptoms</a>
+            <a href="/appointment">Appointment</a>
+            <a href="/emergency">Emergency</a>
+            <a href="/register">Registration</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <h1>Healthcare Access Made Easier</h1>
+
+                <p>
+                    RuralCare helps people in rural areas find hospitals,
+                    check symptoms, book appointments and get emergency
+                    healthcare information.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="/hospitals" class="primary-btn">
+                        Find a Hospital
+                    </a>
+                    <a href="/register" class="primary-btn">
+    Patient Registration
+</a>
+
+                    <a href="/appointment" class="secondary-btn">
+                        Book Appointment
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-icon">
+                🏥
+            </div>
+
+        </section>
+
+
+        <section class="features">
+
+            <h2>How RuralCare Helps</h2>
+
+            <div class="feature-container">
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Find Hospitals</h3>
+                    <p>
+                        Find available hospitals and healthcare
+                        centres in your area.
+                    </p>
+                    <a href="/hospitals">Find Hospital →</a>
+                </div>
+
+
+                <div class="feature-card">
+                    <div class="feature-icon">🩺</div>
+                    <h3>Check Symptoms</h3>
+                    <p>
+                        Select your symptoms and get basic
+                        healthcare guidance.
+                    </p>
+                    <a href="/symptoms">Check Symptoms →</a>
+                </div>
+
+
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Book Appointment</h3>
+                    <p>
+                        Send an appointment request to a
+                        healthcare facility.
+                    </p>
+                    <a href="/appointment">Book Now →</a>
+                </div>
+
+
+                <div class="feature-card emergency-card">
+                    <div class="feature-icon">🚨</div>
+                    <h3>Emergency Help</h3>
+                    <p>
+                        Get immediate emergency healthcare
+                        information when needed.
+                    </p>
+                    <a href="/emergency">Get Help →</a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="about">
+
+            <h2>Why RuralCare?</h2>
+
+            <p>
+                Many people in rural communities face difficulties
+                accessing healthcare services. RuralCare provides a
+                simple digital platform to connect users with essential
+                healthcare information and services.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>© 2026 RuralCare | Healthcare Access Made Easier</p>
+
+        <p class="disclaimer">
+            RuralCare provides general healthcare information and is
+            not a substitute for professional medical advice.
+        </p>
+
+    </footer>
+
+</body>
+</html>

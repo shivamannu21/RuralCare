@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RuralCare - Token Generated</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ec62ec, #00a8e8);
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .card {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #090608e1;
+        }
+
+        .success {
+            color: #159447;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .token {
+            font-size: 60px;
+            font-weight: bold;
+            color: #e83e5b;
+            margin: 20px;
+        }
+
+        .details {
+            text-align: left;
+            background: #f4f7ff;
+            padding: 20px;
+            border-radius: 15px;
+            line-height: 1.8;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #e83e5b;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>RuralCare</h1>
+
+    <p class="success">✓ Patient Registered Successfully</p>
+
+    <p>Your Token Number</p>
+
+    <div class="token">
+        RC-{{ "%03d"|format(token) }}
+    </div>
+
+    <div class="details">
+
+        <b>Patient ID:</b> {{ patient_id }}<br>
+        <b>Patient Name:</b> {{ name }}<br>
+        <b>Age:</b> {{ age }}<br>
+        <b>Gender:</b> {{ gender }}<br>
+        <b>Phone:</b> {{ phone }}<br>
+        <b>Village:</b> {{ village }}<br>
+        <b>Symptoms:</b> {{ symptoms }}<br>
+        <b>Date:</b> {{ visit_date }}<br>
+        <b>Status:</b> Waiting
+
+    </div>
+
+    <a href="/" class="button">Back to Home</a>
+
+</div>
+
+</body>
+</html>

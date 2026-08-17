@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Mobile friendly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RuralCare - Patient Records</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at top left, #ffe6f2, transparent 35%),
+                radial-gradient(circle at bottom right, #dceeff, transparent 35%),
+                linear-gradient(135deg, #eef7ff, #fff1f8);
+
+            min-height: 100vh;
+            padding: 25px 15px;
+            color: #26345c;
+        }
+
+        /* Main container */
+
+        .container {
+            width: 100%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Header */
+
+        .header {
+            background: linear-gradient(
+                135deg,
+                #4b5bdc,
+                #667eea,
+                #9b6cff
+            );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 15px 35px rgba(77, 91, 220, 0.25);
+
+            margin-bottom: 25px;
+        }
+
+        .header-icon {
+            font-size: 45px;
+            margin-bottom: 8px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            margin-top: 8px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Register button */
+
+        .top-actions {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .register-btn {
+            text-decoration: none;
+
+            background: linear-gradient(
+                135deg,
+                #ff5f9e,
+                #ff758c
+            );
+
+            color: white;
+
+            padding: 13px 25px;
+
+            border-radius: 30px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 8px 20px rgba(255, 95, 158, 0.25);
+
+            transition: 0.25s;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 12px 25px rgba(255, 95, 158, 0.35);
+        }
+
+        /* Records card */
+
+        .records-card {
+            background: rgba(255, 255, 255, 0.92);
+
+            border-radius: 25px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 15px 40px rgba(60, 70, 120, 0.12);
+
+            overflow: hidden;
+        }
+
+        .records-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .records-title h2 {
+            font-size: 27px;
+            color: #4656c8;
+        }
+
+        .records-title p {
+            margin-top: 5px;
+            color: #7b83a6;
+        }
+
+        /* Table wrapper */
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+
+            border-radius: 18px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 1050px;
+
+            border-collapse: collapse;
+
+            overflow: hidden;
+        }
+
+        /* Table heading */
+
+        thead {
+            background: linear-gradient(
+                135deg,
+                #4055c8,
+                #6878e8
+            );
+
+            color: white;
+        }
+
+        th {
+            padding: 16px 12px;
+
+            font-size: 14px;
+
+            text-align: center;
+
+            white-space: nowrap;
+        }
+
+        /* Table rows */
+
+        td {
+            padding: 14px 12px;
+
+            text-align: center;
+
+            border-bottom: 1px solid #edf0fa;
+
+            color: #4c5578;
+
+            font-size: 14px;
+        }
+
+        tbody tr {
+            transition: 0.2s;
+        }
+
+        tbody tr:hover {
+            background: #fff5fa;
+        }
+
+        /* Patient name */
+
+        .patient-name {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            font-weight: 700;
+
+            color: #3545b5;
+
+            white-space: nowrap;
+        }
+
+        /* Remove button */
+
+        .delete-btn {
+            border: none;
+
+            background: linear-gradient(
+                135deg,
+                #ff5b7f,
+                #ff416c
+            );
+
+            color: white;
+
+            padding: 7px 12px;
+
+            border-radius: 12px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+            box-shadow:
+                0 4px 10px rgba(255, 65, 108, 0.18);
+        }
+
+        .delete-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 7px 15px rgba(255, 65, 108, 0.3);
+        }
+
+        .delete-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Token */
+
+        .token {
+            display: inline-block;
+
+            background: #f1eaff;
+
+            color: #7547c7;
+
+            padding: 6px 12px;
+
+            border-radius: 15px;
+
+            font-weight: 700;
+        }
+
+        /* Status */
+
+        .status {
+            display: inline-block;
+
+            background: #e5f8ed;
+
+            color: #219653;
+
+            padding: 6px 12px;
+
+            border-radius: 15px;
+
+            font-weight: 700;
+        }
+
+        /* Footer */
+
+        .footer {
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #7d85a6;
+
+            font-size: 13px;
+        }
+
+        /* MOBILE DESIGN */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 12px 8px;
+            }
+
+            .header {
+                padding: 25px 15px;
+
+                border-radius: 20px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .header-icon {
+                font-size: 35px;
+            }
+
+            .records-card {
+                padding: 15px;
+
+                border-radius: 20px;
+            }
+
+            .records-title h2 {
+                font-size: 23px;
+            }
+
+            .register-btn {
+                width: 100%;
+
+                text-align: center;
+            }
+
+            th,
+            td {
+                padding: 12px 9px;
+            }
+
+            .delete-btn {
+                padding: 8px 10px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="header-icon">
+            🏥
+        </div>
+
+        <h1>RuralCare</h1>
+
+        <p>
+            Patient Records & Token Management
+        </p>
+
+    </div>
+
+
+    <!-- REGISTER BUTTON -->
+
+    <div class="top-actions">
+
+        <a
+            href="{{ url_for('register') }}"
+            class="register-btn"
+        >
+            ➕ Register New Patient
+        </a>
+
+    </div>
+
+
+    <!-- RECORDS -->
+
+    <div class="records-card">
+
+        <div class="records-title">
+
+            <h2>
+                📋 Patient Records
+            </h2>
+
+            <p>
+                Manage registered patients and their tokens
+            </p>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Patient ID
+                        </th>
+
+                        <th>
+                            Patient Name
+                        </th>
+
+                        <th>
+                            Age
+                        </th>
+
+                        <th>
+                            Gender
+                        </th>
+
+                        <th>
+                            Phone
+                        </th>
+
+                        <th>
+                            Village / Address
+                        </th>
+
+                        <th>
+                            Token
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for p in patients %}
+
+                    <tr>
+
+                        <!-- Patient ID -->
+
+                        <td>
+                            {{ p['patient_id'] }}
+                        </td>
+
+
+                        <!-- NAME + REMOVE BUTTON -->
+
+                        <td>
+
+                            <div class="patient-name">
+
+                                <span>
+                                    {{ p['name'] }}
+                                </span>
+
+                                <form
+                                    action="{{ url_for('delete_patient', patient_id=p['patient_id']) }}"
+                                    method="POST"
+                                    style="display:inline;"
+                                    onsubmit="return confirm('Are you sure you want to remove {{ p['name'] }} from the records?');"
+                                >
+
+                                    <button
+                                        type="submit"
+                                        class="delete-btn"
+                                    >
+                                        🗑️ Remove
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- AGE -->
+
+                        <td>
+                            {{ p['age'] }}
+                        </td>
+
+
+                        <!-- GENDER -->
+
+                        <td>
+                            {{ p['gender'] }}
+                        </td>
+
+
+                        <!-- PHONE -->
+
+                        <td>
+                            {{ p['phone'] or 'Not Provided' }}
+                        </td>
+
+
+                        <!-- VILLAGE -->
+
+                        <td>
+                            {{ p['village'] or 'Not Provided' }}
+                        </td>
+
+
+                        <!-- TOKEN -->
+
+                        <td>
+
+                            <span class="token">
+
+                                RC-T-{{
+                                    '%03d'|format(
+                                        p['token_number']
+                                    )
+                                }}
+
+                            </span>
+
+                        </td>
+
+
+                        <!-- DATE -->
+
+                        <td>
+                            {{ p['visit_date'] }}
+                        </td>
+
+
+                        <!-- STATUS -->
+
+                        <td>
+
+                            <span class="status">
+
+                                {{ p['status'] }}
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                {% else %}
+
+                    <tr>
+
+                        <td
+                            colspan="9"
+                            style="
+                                padding:40px;
+                                color:#8b91ad;
+                                font-size:16px;
+                            "
+                        >
+
+                            🩷 No patient records found.
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        💙 RuralCare — Making rural healthcare easier
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
